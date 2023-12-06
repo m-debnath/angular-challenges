@@ -6,18 +6,18 @@ import { City } from '../model/city.model';
   providedIn: 'root',
 })
 export class CityStore {
-  private items = new BehaviorSubject<City[]>([]);
-  cities$ = this.items.asObservable();
+  private cities = new BehaviorSubject<City[]>([]);
+  cities$ = this.cities.asObservable();
 
   addAll(cities: City[]) {
-    this.items.next(cities);
+    this.cities.next(cities);
   }
 
   addOne(city: City) {
-    this.items.next([...this.items.value, city]);
+    this.cities.next([...this.cities.value, city]);
   }
 
   deleteOne(id: number) {
-    this.items.next(this.items.value.filter((s) => s.id !== id));
+    this.cities.next(this.cities.value.filter((s) => s.id !== id));
   }
 }
