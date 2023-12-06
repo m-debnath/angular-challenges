@@ -52,7 +52,7 @@ const factoryCity = incrementalNumber();
 
 export const randomCity = (): City => ({
   id: factoryCity(),
-  name: randCity(),
+  firstname: randCity(),
   country: randCountry(),
 });
 

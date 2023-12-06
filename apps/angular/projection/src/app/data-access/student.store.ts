@@ -6,18 +6,18 @@ import { Student } from '../model/student.model';
   providedIn: 'root',
 })
 export class StudentStore {
-  private students = new BehaviorSubject<Student[]>([]);
-  students$ = this.students.asObservable();
+  private items = new BehaviorSubject<Student[]>([]);
+  students$ = this.items.asObservable();
 
   addAll(students: Student[]) {
-    this.students.next(students);
+    this.items.next(students);
   }
 
   addOne(student: Student) {
-    this.students.next([...this.students.value, student]);
+    this.items.next([...this.items.value, student]);
   }
 
   deleteOne(id: number) {
-    this.students.next(this.students.value.filter((s) => s.id !== id));
+    this.items.next(this.items.value.filter((s) => s.id !== id));
   }
 }
